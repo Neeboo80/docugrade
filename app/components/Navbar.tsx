@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { usePuterStore } from "~/lib/puter"
 
+//const Navbar = ({ auth }: { auth: any }) => {
 const Navbar = () => {
+  const auth = usePuterStore().auth;
   return (
     <nav className='navbar'>
         <Link to="/">
@@ -10,6 +13,18 @@ const Navbar = () => {
         <Link to="/upload" className="primary-button w-fit">
             <p className="text-lg hover:text-gray-700">Upload Document</p>
         </Link>
+            <>
+      {auth.isAuthenticated ? (
+        
+        <Link to="/auth" className="primary-button w-fit" onClick={auth.signOut}>
+            <p className="text-lg hover:text-gray-700">Log Out</p>
+        </Link>
+      ) : (
+        <Link to="/auth" className="primary-button w-fit" onClick={auth.signIn}>
+            <p className="text-lg hover:text-gray-700">Log In</p>
+        </Link>
+      )}
+    </>
         
     </nav>
   )
