@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 
 # Trigger this workflow on pushes to any branch
-on: [push workflow_dispatch]
+on: [push, workflow_dispatch]
 
 # A workflow run is made up of one or more jobs
 jobs:
