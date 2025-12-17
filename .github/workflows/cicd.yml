@@ -15,8 +15,3 @@ jobs:
       - name: Say hello world
         run: echo "Hello, world! This job was triggered by a ${{ github.event_name }} event."
 
-      # Runs a set of commands using the runners shell
-      - name: List files in the repository
-        run: |
-          echo "Listing files in the ${{ github.workspace }} repository:"
-          ls -F
