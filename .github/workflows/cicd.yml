@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 
 # Trigger this workflow on pushes to any branch
-on: [push]
+on: [push, workflow_dispatch]
 
 # A workflow run is made up of one or more jobs
 jobs:
@@ -24,4 +24,3 @@ jobs:
         run: |
           echo "Listing files in the ${{ github.workspace }} repository:"
           ls -F
-          echo "This job was run by ${{ github.actor }}."
