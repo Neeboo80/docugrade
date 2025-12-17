@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 
 # Trigger this workflow on pushes to any branch
-on: [push workflow_dispatch]
+on: [push]
 
 # A workflow run is made up of one or more jobs
 jobs:
@@ -11,6 +11,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Use the checkout action to get a copy of your repository's code
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
       # Runs a single command using the runners shell
       - name: Say hello world
         run: echo "Hello, world! This job was triggered by a ${{ github.event_name }} event."
@@ -20,3 +24,4 @@ jobs:
         run: |
           echo "Listing files in the ${{ github.workspace }} repository:"
           ls -F
+          echo "This job was run by ${{ github.actor }}."
